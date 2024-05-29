@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useCallback, useContext, useReducer } from "react";
 
 const QuotesContext = createContext();
 
@@ -30,28 +30,22 @@ function QuotesProvider({ children }) {
     initialState
   );
 
-  async function fetchQuotes() {
+  const fetchQuotes = useCallback(async function fetchQuotes() {
     dispatch({ type: "loading" });
     const res = await fetch(`${BASE_URL}/quotes/random?limit=10`);
     const response = await res.json();
     console.log(response);
     dispatch({ type: "homepageQuotes/loaded", payload: response });
-  }
+  }, []);
 
-  async function searchQuery(query) {
+  const searchQuery = useCallback(async function searchQuery(query) {
     dispatch({ type: "loading" });
     const res = await fetch(`${BASE_URL}/search/quotes?query=${query}`);
     const response = await res.json();
     console.log(response);
     dispatch({ type: "searchQuotes/loaded", payload: response.results });
-  }
+  }, []);
 
-  function fakeLoading() {
-    // dispatch({ type: "loading" });
-    // setTimeout(function () {
-    //   dispatch({ type: "stopLoading" });
-    // }, 2000);
-  }
   return (
     <QuotesContext.Provider
       value={{

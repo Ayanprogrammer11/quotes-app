@@ -1,7 +1,7 @@
 function Skeleton({ nums = 1 }) {
   const stacks = new Array(nums).fill(10);
   return (
-    <div>
+    <div className="quotes-list grid grid-cols-1 sm:grid-cols-2 min-[960px]:grid-cols-3 gap-6 lg:gap-8">
       {stacks.map((stack, i) => (
         <div
           className="border shadow rounded-md p-4 max-w-sm w-full mx-auto border-none"
