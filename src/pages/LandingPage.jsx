@@ -40,8 +40,8 @@ function LandingPage() {
           </ReactTyped>
 
           <p className="mt-2 text-white sm:mt-1 sm:px-2 md:px-10 md:text-2xl lg:px-16 lg:mt-6">
-            <span class="before:block before:absolute before:-inset-1 before:-skew-y-2 before:rounded-md before:bg-pink-500 relative inline-block">
-              <span class="relative text-white text-inherit">
+            <span className="before:block before:absolute before:-inset-1 before:-skew-y-2 before:rounded-md before:bg-pink-500 relative inline-block">
+              <span className="relative text-white text-inherit">
                 Want to win an argument?
               </span>
             </span>
